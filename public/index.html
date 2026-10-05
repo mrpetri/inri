@@ -103,6 +103,10 @@ section{padding:56px 0;border-top:1px solid var(--rule)}
 .sample{margin:0}
 .sample img{width:100%;height:auto;background:#fff;box-shadow:0 1px 0 var(--rule),0 12px 28px -16px rgba(30,27,24,.4)}
 .sample figcaption{font-size:14.5px;color:var(--muted);margin-top:10px;line-height:1.4}
+.excerpts{display:grid;gap:40px;max-width:860px}
+.excerpts a{display:block}
+.excerpts figcaption{font-size:16px;color:var(--ink-2);margin-top:12px;line-height:1.45}
+.excerpts figcaption .lbl{display:block;margin-bottom:2px}
 .compare{display:grid;gap:24px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px}
 .compare .lbl{display:block;margin-top:12px}
 .compare .lbl.new{color:var(--accent)}
@@ -228,21 +232,31 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   </div>
 </section>
 
-<!-- NÄYTESIVUT
-     Pudota kuvat kansioon img/ nimillä nayte-1.jpg, nayte-2.jpg ja nayte-3.jpg.
-     Kuva, jota ei löydy, piilotetaan automaattisesti. Osio tulee näkyviin vasta, kun ainakin yksi kuva löytyy.
-     Vaihda samalla figcaption-tekstit vastaamaan sivuja. -->
+<!-- OTTEITA KIRJASTA
+     Kuvat img/nayte-1.jpg … nayte-3.jpg. Kuva, jota ei löydy, piilotetaan automaattisesti,
+     ja osio näkyy vain, jos ainakin yksi kuva löytyy. Älä lisää kuviin loading="lazy":
+     piilotetun osion kuvat eivät silloin lataudu eikä osio tule näkyviin. -->
 <section id="naytesivut" class="js-samples" aria-labelledby="naytteet-h" hidden>
   <div class="wrap">
     <div class="sec-head">
-      <span class="kicker">Näytesivut</span>
+      <span class="kicker">Otteita</span>
       <h2 id="naytteet-h">Kirjan sivuilta</h2>
     </div>
-    <div class="grid-samples">
-      <figure class="sample"><img src="img/nayte-1.jpg" alt="Näytesivu 1"><figcaption>Augustuksen verollepano</figcaption></figure>
-      <figure class="sample"><img src="img/nayte-2.jpg" alt="Näytesivu 2"><figcaption>Paimenet kedolla</figcaption></figure>
-      <figure class="sample"><img src="img/nayte-3.jpg" alt="Näytesivu 3"><figcaption>Tietäjät itämailta</figcaption></figure>
+    <div class="excerpts">
+      <figure class="sample">
+        <a href="img/nayte-1.jpg"><img src="img/nayte-1.jpg" width="1600" height="1150" alt="Kuusi sarjakuvaruutua tallista. Maria sanoo, että synnytyksen aika on lähellä. Joosef makaa oljilla ja luettelee Jeesuksen sukupuuta, kunnes aasi ja Maria nukahtavat."></a>
+        <figcaption><span class="lbl">Sivu 14</span>Betlehemin tallissa Joosef kertaa sukupuuta, kunnes aasikin nukahtaa.</figcaption>
+      </figure>
+      <figure class="sample">
+        <a href="img/nayte-2.jpg"><img src="img/nayte-2.jpg" width="1600" height="1140" alt="Viisi sarjakuvaruutua. Herran enkeli ilmestyy paimenille kirkkaassa valossa ja ilmoittaa: älkää peljätkö, teille on tänään syntynyt Vapahtaja."></a>
+        <figcaption><span class="lbl">Sivu 15</span>Enkeli ilmestyy paimenille kedolla.</figcaption>
+      </figure>
+      <figure class="sample">
+        <a href="img/nayte-3.jpg"><img src="img/nayte-3.jpg" width="1600" height="1135" alt="Neljä sarjakuvaruutua. Itämaan tietäjät astuvat sisään, näkevät Marian, Joosefin ja lapsen, kumartuvat maahan ja ojentavat lahjansa: kultaa, pyhää savua ja mirhamia."></a>
+        <figcaption><span class="lbl">Sivu 31</span>Tietäjät löytävät lapsen ja tuovat lahjansa: kultaa, pyhää savua ja mirhamia.</figcaption>
+      </figure>
     </div>
+    <p class="note">Kuvan saa suuremmaksi napauttamalla. Otteet ovat vuoden 1992 painoksesta. Uudessa painoksessa värit ovat raikkaammat.</p>
   </div>
 </section>
 
