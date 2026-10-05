@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inri – jouluevankeliumi sarjakuvana | ennakkotilaus</title>
-<meta name="description" content="Antero Karjalaisen Inri-sarjakuva (1992) uutena, modernisoituna painoksena. Ennakkotilaukset seurakunnille pe 6.11.2026 mennessä.">
+<meta name="description" content="Antero Karjalaisen Inri-sarjakuva (1992) uutena, modernisoituna painoksena. Ennakkotilaukset pe 6.11.2026 mennessä.">
 <meta name="color-scheme" content="light">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fi_FI">
@@ -270,7 +270,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <div class="wrap">
     <div class="sec-head">
       <span class="kicker">Hinnasto</span>
-      <h2 id="hinta-h">Määräalennukset seurakunnille</h2>
+      <h2 id="hinta-h">Hinnat ja määräalennukset</h2>
     </div>
     <div class="prices">
       <div class="ptable-box">
@@ -288,7 +288,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <p class="fine">Toimitus sisältyy hintaan 10 kappaleesta alkaen. Lasku lähetetään toimituksen yhteydessä.</p>
       </div>
       <div class="pricepoints">
-                <p>Kirjat painetaan ennakkotilausten perusteella, joten tilaamalla nyt varmistatte kirjat joulun toimintaan.</p>
+                <p>Kirjat painetaan ennakkotilausten perusteella, joten tilaamalla nyt varmistatte kirjat jouluksi.</p>
+        <p>Kirjakaupat ja jälleenmyyjät: kysykää jälleenmyyntiehtoja osoitteesta <a href="mailto:inri@flowman.fi">inri@flowman.fi</a>.</p>
       </div>
     </div>
   </div>
@@ -311,6 +312,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <li>Kustantaja pidättää oikeuden perua tilaukset, jos vähimmäismäärä ei täyty. Perumisesta ilmoitetaan viimeistään ma 9.11., eikä siitä aiheudu tilaajalle kuluja.</li>
       <li>Kirjat postitetaan viimeistään pe 20.11., joten ne ehtivät perille hyvissä ajoin ennen ensimmäistä adventtia (29.11.).</li>
       <li>Lasku lähetetään toimituksen yhteydessä.</li>
+      <li>Yksityishenkilöillä on 14 päivän peruutusoikeus kirjojen vastaanottamisesta. Peruutuksesta ilmoitetaan osoitteeseen inri@flowman.fi, ja palautuskulut maksaa tilaaja.</li>
     </ul>
   </div>
 </section>
@@ -325,10 +327,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <div>
         <p style="margin-bottom:18px">Lähettäkää tilaus pe 6.11. mennessä ja kertokaa siinä:</p>
         <ol>
-          <li>Seurakunta ja yhteyshenkilö</li>
+          <li>Nimi tai seurakunta ja yhteyshenkilö</li>
           <li>Kappalemäärä</li>
           <li>Toimitusosoite</li>
-          <li>Laskutusosoite</li>
+          <li>Laskutusosoite, jos eri kuin toimitusosoite</li>
         </ol>
       </div>
       <div style="display:flex;flex-direction:column;gap:18px">
@@ -339,7 +341,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           <button type="button" class="btn btn-ghost js-copy">Kopioi osoite</button>
         </div>
         <p class="copied" role="status" aria-live="polite"></p>
-        <p class="small">Sivun voi välittää sellaisenaan eteenpäin hankinnan hyväksyjälle.</p>
       </div>
     </div>
   </div>
@@ -384,12 +385,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     if (s && /^[a-z0-9]{3,8}$/i.test(s)) ref = s.toLowerCase();
   } catch (e) {}
 
-  var body = 'Hei,\n\ntilaamme Inri-sarjakuvaa seuraavasti:\n\n' +
-    'Seurakunta: \n' +
+  var body = 'Hei,\n\ntilaus: Inri-sarjakuva, uusi painos\n\n' +
+    'Nimi tai seurakunta: \n' +
     'Yhteyshenkilö: \n' +
     'Kappalemäärä: \n' +
     'Toimitusosoite: \n' +
-    'Laskutusosoite: \n' +
+    'Laskutusosoite (jos eri kuin toimitusosoite): \n' +
     (ref ? '\nViite: ' + ref + '\n' : '');
   var href = 'mailto:inri@flowman.fi?subject=' + encodeURIComponent('Inri-ennakkotilaus') +
     '&body=' + encodeURIComponent(body);
