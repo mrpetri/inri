@@ -385,6 +385,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     if (s && /^[a-z0-9]{3,8}$/i.test(s)) ref = s.toLowerCase();
   } catch (e) {}
 
+  // Käyntiseuranta: ilmoitetaan seurakunnan koodi Inri-taulukkoon (Apps Script)
+  if (ref) {
+    try { fetch('https://script.google.com/macros/s/AKfycbycJs-Rs6A4_Fwy0KSPaLZZ8TlvAZ_ClbII5V6rx63oVB0FdDZtDh8mD6wFZ8l9SRk/exec?s=' + encodeURIComponent(ref), { mode: 'no-cors', keepalive: true }); } catch (e) {}
+  }
+
   var body = 'Hei,\n\ntilaus: Inri-sarjakuva, uusi painos\n\n' +
     'Nimi tai seurakunta: \n' +
     'Yhteyshenkilö: \n' +
