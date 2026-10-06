@@ -380,8 +380,34 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   } catch (e) {}
 
   // Käyntiseuranta: ilmoitetaan seurakunnan koodi Inri-taulukkoon (Apps Script)
+  var SEURANTA = 'https://script.google.com/macros/s/AKfycbycJs-Rs6A4_Fwy0KSPaLZZ8TlvAZ_ClbII5V6rx63oVB0FdDZtDh8mD6wFZ8l9SRk/exec';
   if (ref) {
-    try { fetch('https://script.google.com/macros/s/AKfycbycJs-Rs6A4_Fwy0KSPaLZZ8TlvAZ_ClbII5V6rx63oVB0FdDZtDh8mD6wFZ8l9SRk/exec?s=' + encodeURIComponent(ref), { mode: 'no-cors', keepalive: true }); } catch (e) {}
+    try { fetch(SEURANTA + '?s=' + encodeURIComponent(ref), { mode: 'no-cors', keepalive: true }); } catch (e) {}
+  }
+
+  // Tapahtumat (vain ?s=koodi-linkillä tulleille, kukin kerran per sivulataus):
+  // hinnasto = vieritti hinnastoon, esite = avasi esitteen PDF:n, tilaus = klikkasi tilausosoitetta
+  var lahetetty = {};
+  var tapahtuma = function(nimi){
+    if (!ref || lahetetty[nimi]) return;
+    lahetetty[nimi] = true;
+    try { fetch(SEURANTA + '?k=' + encodeURIComponent(ref) + '&e=' + nimi, { mode: 'no-cors', keepalive: true }); } catch (e) {}
+  };
+  if (ref) {
+    var hinnasto = document.getElementById('hinnasto');
+    if (hinnasto && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(ent){
+        if (ent.some(function(x){ return x.isIntersecting; })) { tapahtuma('hinnasto'); io.disconnect(); }
+      }, { threshold: 0.4 });
+      io.observe(hinnasto);
+    }
+    document.addEventListener('click', function(ev){
+      var a = ev.target.closest && ev.target.closest('a, .js-copy');
+      if (!a) return;
+      var h = a.getAttribute('href') || '';
+      if (/Inri-esite\.pdf$/.test(h)) tapahtuma('esite');
+      else if (/^mailto:inri@/i.test(h) || a.classList.contains('js-copy')) tapahtuma('tilaus');
+    });
   }
 
   var body = 'Hei,\n\ntilaus: Inri-sarjakuva, uusi painos\n\n' +
